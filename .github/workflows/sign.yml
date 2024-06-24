@@ -14,6 +14,7 @@ jobs:
         with:
           patterns: |
             *.*
+          hexseed: ${{ secrets.DILITHIUM_HEXSEED }}
       - name: Upload signature file as artifact
         uses: actions/upload-artifact@master
         with:
