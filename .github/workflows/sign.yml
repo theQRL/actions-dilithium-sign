@@ -1,0 +1,21 @@
+on: workflow_dispatch
+
+name: Generate Dilithium Signatures
+
+jobs:
+  test:
+    name: Generate Checksum
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+      - name: Generate checksum
+        uses: jplomas/actions-dilithium-sign@v1
+        with:
+          patterns: |
+            *.*
+      - name: Upload signature file as artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: result
+          path: signatures.txt
