@@ -22,8 +22,11 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - id: read-docker-image-identifiers
+        name: Read Docker Image Identifiers
+        run: echo ::set-env name=IMAGE_REPOSITORY::$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.event.inputs.tag }}
+          tags: ${{ env.IMAGE_REPOSITORY }}/${{ env.IMAGE_NAME }}:${{ github.event.inputs.tag }}
