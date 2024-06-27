@@ -26,4 +26,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: $IMAGE_REPOSITORY/${{ env.IMAGE_NAME }}:${{ github.event.inputs.tag }}
+          tags: theqrl/actions-dilithium-sign:${{ github.event.inputs.tag }}
