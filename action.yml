@@ -13,7 +13,7 @@ inputs:
     required: true
 runs:
   using: docker
-  image: docker://ghcr.io/jplomas/actions-dilithium-sign:v1.0.0
+  image: docker://ghcr.io/theQRL/actions-dilithium-sign:v1.0.0
   args:
     - ${{ inputs.hexseed }}
     - ${{ inputs.output }}

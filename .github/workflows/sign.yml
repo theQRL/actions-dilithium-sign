@@ -10,7 +10,7 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v2
       - name: Generate checksum
-        uses: jplomas/actions-dilithium-sign@v1
+        uses: theQRL/actions-dilithium-sign@v1
         with:
           patterns: |
             *.*
